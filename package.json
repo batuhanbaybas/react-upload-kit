@@ -1,6 +1,6 @@
 {
   "name": "react-upload-kit",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Headless, adapter-based file upload toolkit for React with drag & drop support",
   "type": "module",
   "main": "./dist/index.cjs",
