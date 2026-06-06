@@ -1,0 +1,383 @@
+:root {
+  --bg: #0b0d12;
+  --surface: #14171f;
+  --surface-2: #1b1f29;
+  --border: #262b37;
+  --text: #e6e9ef;
+  --text-dim: #9aa3b2;
+  --accent: #6d8bff;
+  --accent-soft: rgba(109, 139, 255, 0.14);
+  --success: #41c98b;
+  --danger: #ff6b6b;
+  --warning: #f2c14e;
+  --radius: 14px;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(1200px 600px at 50% -10%, #161a26 0%, var(--bg) 60%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 20px 48px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0 auto;
+  max-width: 520px;
+  color: var(--text-dim);
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.8);
+}
+
+/* Dropzone --------------------------------------------------------------- */
+.dropzone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+  background: var(--surface-2);
+}
+
+.dropzone:hover {
+  border-color: var(--accent);
+}
+
+.dropzone--active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+.dropzone--reject {
+  border-color: var(--danger);
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.dropzone__icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.25rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.dropzone--reject .dropzone__icon {
+  background: rgba(255, 107, 107, 0.18);
+  color: var(--danger);
+}
+
+.dropzone__title {
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+
+.dropzone__hint {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+/* Toolbar ---------------------------------------------------------------- */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+
+.toolbar__progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.toolbar__progress progress {
+  width: 140px;
+  height: 8px;
+  accent-color: var(--accent);
+}
+
+.toolbar__progress strong {
+  color: var(--text);
+}
+
+.toolbar__actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Buttons ---------------------------------------------------------------- */
+.btn {
+  font: inherit;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn:hover {
+  border-color: var(--accent);
+}
+
+.btn--ghost {
+  background: transparent;
+}
+
+.btn--danger-ghost {
+  background: transparent;
+  color: var(--danger);
+  border-color: transparent;
+}
+
+.btn--danger-ghost:hover {
+  border-color: var(--danger);
+}
+
+.btn--sm {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+
+.btn--icon {
+  padding: 5px 9px;
+  color: var(--text-dim);
+}
+
+/* Rejections ------------------------------------------------------------- */
+.rejections {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgba(255, 107, 107, 0.08);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.rejections__item {
+  font-size: 0.85rem;
+  color: var(--danger);
+}
+
+.rejections__item + .rejections__item {
+  margin-top: 4px;
+}
+
+/* File list -------------------------------------------------------------- */
+.file-list {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.file {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-2);
+}
+
+.file__thumb {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.file__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.file__ext {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+
+.file__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.file__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.file__name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file__meta {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin: 4px 0 8px;
+}
+
+.file__meta a {
+  color: var(--accent);
+}
+
+.file__bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.file__bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
+
+.file__bar[data-status='success'] .file__bar-fill {
+  background: var(--success);
+}
+
+.file__bar[data-status='error'] .file__bar-fill,
+.file__bar[data-status='cancelled'] .file__bar-fill {
+  background: var(--danger);
+}
+
+.file__error {
+  margin: 8px 0 0;
+  font-size: 0.78rem;
+  color: var(--danger);
+}
+
+.file__actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* Badges ----------------------------------------------------------------- */
+.badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge--pending {
+  background: var(--border);
+  color: var(--text-dim);
+}
+
+.badge--uploading {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.badge--success {
+  background: rgba(65, 201, 139, 0.16);
+  color: var(--success);
+}
+
+.badge--error {
+  background: rgba(255, 107, 107, 0.16);
+  color: var(--danger);
+}
+
+.badge--cancelled {
+  background: rgba(242, 193, 78, 0.16);
+  color: var(--warning);
+}
+
+/* Misc ------------------------------------------------------------------- */
+.empty {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin: 24px 0 8px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.footer a {
+  color: var(--text-dim);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--accent);
+}

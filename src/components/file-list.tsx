@@ -1,5 +1,6 @@
 import type { UploadFile } from '../core/types';
 import { useFilePreview } from '../hooks/use-file-preview';
+import  { ReactNode } from 'react';
 
 export interface FileListItemContext<TResponse = unknown> {
   file: UploadFile<TResponse>;
@@ -12,7 +13,7 @@ export interface FileListItemContext<TResponse = unknown> {
 
 export interface FileListProps<TResponse = unknown> {
   files: UploadFile<TResponse>[];
-  children: (context: FileListItemContext<TResponse>) => React.ReactNode;
+  children: (context: FileListItemContext<TResponse>) => ReactNode;
   onRemove?: (fileId: string) => void;
   onRetry?: (fileId: string) => void;
   onCancel?: (fileId: string) => void;
